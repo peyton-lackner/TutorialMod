@@ -17,6 +17,11 @@ public class ModItems {
             ItemGroups.NATURAL
     );
 
+    public static final Item TANZANITE = registerItem(
+            "tanzanite",
+            new Item(new Item.Settings()),
+            ModItemGroup.TANZANITE
+    );
 
 
 
