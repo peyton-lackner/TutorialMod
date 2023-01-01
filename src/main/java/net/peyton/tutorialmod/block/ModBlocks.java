@@ -9,11 +9,13 @@ import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.peyton.tutorialmod.TutorialMod;
+import net.peyton.tutorialmod.block.custom.JumpyBlock;
 import net.peyton.tutorialmod.item.ModItemGroup;
 
 public class ModBlocks {
@@ -35,6 +37,9 @@ public class ModBlocks {
     public static final Block NETHERRACK_TANZANITE_ORE = registerBlock("netherrack_tanzanite_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.of(Material.STONE).strength(2f).requiresTool(),
                     UniformIntProvider.create(3, 7)), ModItemGroup.TANZANITE);
+
+    public static final Block JUMPY_BLOCK = registerBlock("jumpy_block",
+            new JumpyBlock(FabricBlockSettings.of(Material.STONE).strength(4f).requiresTool()), ItemGroups.FUNCTIONAL);
 
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
