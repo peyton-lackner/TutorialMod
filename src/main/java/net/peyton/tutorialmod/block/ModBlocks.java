@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.peyton.tutorialmod.TutorialMod;
 import net.peyton.tutorialmod.block.custom.JumpyBlock;
+import net.peyton.tutorialmod.block.custom.TanzaniteLampBlock;
 import net.peyton.tutorialmod.item.ModItemGroup;
 
 public class ModBlocks {
@@ -40,6 +41,10 @@ public class ModBlocks {
 
     public static final Block JUMPY_BLOCK = registerBlock("jumpy_block",
             new JumpyBlock(FabricBlockSettings.of(Material.STONE).strength(4f).requiresTool()), ItemGroups.FUNCTIONAL);
+
+    public static final Block TANZANITE_LAMP = registerBlock("tanzanite_lamp",
+            new TanzaniteLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP).strength(3f)
+                    .luminance(state -> state.get(TanzaniteLampBlock.LIT) ? 15 : 0)), ModItemGroup.TANZANITE);
 
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
