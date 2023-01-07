@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.peyton.tutorialmod.block.ModBlocks;
 import net.peyton.tutorialmod.item.ModItems;
 import net.peyton.tutorialmod.painting.ModPaintings;
+import net.peyton.tutorialmod.util.ModLootTableModifiers;
 import net.peyton.tutorialmod.villager.ModVillagers;
 import net.peyton.tutorialmod.world.feature.ModConfiguredFeatures;
 import org.slf4j.Logger;
@@ -17,12 +18,14 @@ public class TutorialMod implements ModInitializer {
 	public void onInitialize() {
 		ModConfiguredFeatures.registerConfiguredFeatures();
 
-		ModItems.RegisterModItems();
-		ModBlocks.RegisterModBlocks();
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 
 		ModVillagers.registerVillagers();
 		ModVillagers.registerTrades();
 
 		ModPaintings.registerPaintings();
+
+		ModLootTableModifiers.modifyLootTables();
 	}
 }

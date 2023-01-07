@@ -49,7 +49,7 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(TutorialMod.MOD_ID, name), item);
     }
 
-    public static void RegisterModItems() {
+    public static void registerModItems() {
         TutorialMod.LOGGER.debug("Registering Mod Items for " + TutorialMod.MOD_ID);
     }
 }
