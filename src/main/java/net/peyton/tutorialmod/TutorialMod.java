@@ -3,6 +3,7 @@ package net.peyton.tutorialmod;
 import net.fabricmc.api.ModInitializer;
 import net.peyton.tutorialmod.block.ModBlocks;
 import net.peyton.tutorialmod.item.ModItems;
+import net.peyton.tutorialmod.networking.ModMessages;
 import net.peyton.tutorialmod.painting.ModPaintings;
 import net.peyton.tutorialmod.util.ModLootTableModifiers;
 import net.peyton.tutorialmod.villager.ModVillagers;
@@ -27,5 +28,7 @@ public class TutorialMod implements ModInitializer {
 		ModPaintings.registerPaintings();
 
 		ModLootTableModifiers.modifyLootTables();
+
+		ModMessages.registerC2SPackets();
 	}
 }
