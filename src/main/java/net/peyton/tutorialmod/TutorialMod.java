@@ -28,7 +28,6 @@ public class TutorialMod implements ModInitializer {
 		ModPaintings.registerPaintings();
 
 		ModLootTableModifiers.modifyLootTables();
-
 		ModMessages.registerC2SPackets();
 	}
 }
