@@ -1,7 +1,9 @@
 package net.peyton.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.peyton.tutorialmod.block.ModBlocks;
+import net.peyton.tutorialmod.event.PlayerTickHandler;
 import net.peyton.tutorialmod.item.ModItems;
 import net.peyton.tutorialmod.networking.ModMessages;
 import net.peyton.tutorialmod.painting.ModPaintings;
@@ -29,5 +31,7 @@ public class TutorialMod implements ModInitializer {
 
 		ModLootTableModifiers.modifyLootTables();
 		ModMessages.registerC2SPackets();
+
+		ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }
