@@ -13,6 +13,8 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
+import net.peyton.tutorialmod.util.IEntityDataSaver;
+import net.peyton.tutorialmod.util.ThirstData;
 
 public class DrinkingC2SPacket {
     private static final String MESSAGE_DRINKING_WATER = "message.tutorialmod.drank_water";
@@ -24,12 +26,26 @@ public class DrinkingC2SPacket {
         if(isWaterAroundThem(player, world, 2)) {
             // Notify the player
             player.sendMessage(Text.translatable(MESSAGE_DRINKING_WATER).fillStyle(Style.EMPTY.withColor(Formatting.DARK_AQUA)), false);
+
             // Play the drinking sound
             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS,
                     0.5F, world.random.nextFloat() * 0.1F + 0.9F);
+
+            // Actually add the water level to the player
+            ThirstData.addThirst(((IEntityDataSaver) player), 1);
+
+            // Output how much thirst the player has
+            player.sendMessage(Text.literal("Thirst: " + ((IEntityDataSaver) player).getPersistentData().getInt("thirst"))
+                    .fillStyle(Style.EMPTY.withColor(Formatting.AQUA)), true);
         } else {
             // Notify the player
             player.sendMessage(Text.translatable(MESSAGE_NO_WATER_NEARBY).fillStyle(Style.EMPTY.withColor(Formatting.RED)), false);
+
+            // Output how much thirst the player has
+            player.sendMessage(Text.literal("Thirst: " + ((IEntityDataSaver) player).getPersistentData().getInt("thirst"))
+                    .fillStyle(Style.EMPTY.withColor(Formatting.AQUA)), true);
+
+            // Sync thirst
         }
 
     }
